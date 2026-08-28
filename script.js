@@ -39,26 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ---------- Contact form ---------- */
-  var form = document.querySelector('#contact-form');
-  var status = document.querySelector('#form-status');
-
-  if (form && status) {
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      // NOTE: This form is not yet connected to a delivery service.
-      // Point the form's "action" attribute at Formspree (or a similar
-      // form backend) and remove this preventDefault handler — or keep
-      // this handler and POST to your endpoint with fetch() — to make
-      // submissions actually reach Sharmin. See the README notes.
-      status.textContent = "Thanks for reaching out. This form isn't connected to email yet — please call or text Sharmin directly at 916-553-2264 until it is.";
-      status.classList.add('is-visible');
-      status.setAttribute('role', 'status');
-      form.reset();
-    });
-  }
-
   /* ---------- Current year in footer ---------- */
   var yearEls = document.querySelectorAll('[data-year]');
   yearEls.forEach(function (el) { el.textContent = new Date().getFullYear(); });
